@@ -4,7 +4,75 @@ const Express = require('express')
 //importing varible controller dotenv = express
 const dotenv= require('dotenv');
 
-//import config propsKeywords
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // importing mongodb connection
 const connectMyDB= require('./config/db2')
