@@ -1,13 +1,16 @@
 .login-container{
-   width:100px!important;
+   width:400px!important;
    height:100px !important;
    text-align: center;
    background-color: rgb(0, 255, 42) !important;
 
 
 }
-.card{
+card{
    width:50px!important;
    height:50px !important;
    background-color: rgb(0, 255, 42) !important;
 }
+/* large{
+   /* icon-size:15px; 
+} */
