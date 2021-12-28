@@ -33,7 +33,7 @@ app.use(express.json())// to accept JSON data
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-
+// ths is important to create user. if not present it brings error cannot find property .id 
 const sessionConfig= {
     secret: 'keyboard cat',
     resave: false,// don't save seesion if no change was made
@@ -46,14 +46,34 @@ const sessionConfig= {
 }
 
 
+//Method override
+app.use (methodOverride((req,res)=>{
+    if(req.body && typeof req.body ==='object' &&'_method' in req.body){
+        //look in urlencoded POST bodies and delete it 
+        let method=req.body._method
+        delete req.body._method
+        return method
+    }
+}))
+
+
+
 app.use(session(sessionConfig))
 
 //passport middlewares
 app.use(passport.initialize())
 app.use(passport.session())
 
+//set global var
+app.use(function(req, res, next) {
+    res.locals.user=req.user || null
+    next()
+})
+
+
 app.use('/',require('./routes/index'))
 app.use('/auth',require('./routes/auth'))
+app.use('/stories',require('./routes/stories'))
 
 
 
